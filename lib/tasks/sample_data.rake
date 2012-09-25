@@ -7,7 +7,7 @@ namespace :db do
 
   desc "Fill database with sample data"
   task :populate => :environment do
-    #call methods to populate data
+    make_lifecycles
   end
 
   desc "re-populate the database with sample data"
@@ -15,6 +15,14 @@ namespace :db do
     puts "Database has been repopulated!"
   end
 
+end
+
+def make_lifecycles
+  Lifecycle.create(name: "Waterfall", description: "Waterfall lifecycle")
+
+  Lifecycle.create(name: "Scrum", description: "Scrum lifecycle")
+
+  Lifecycle.create(name: "XP", description: "XP lifecycle")
 end
 
 #def make_admin
