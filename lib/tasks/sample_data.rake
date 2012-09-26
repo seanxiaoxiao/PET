@@ -19,9 +19,7 @@ end
 
 def make_lifecycles
   Lifecycle.create(name: "Waterfall", description: "Waterfall lifecycle")
-
   Lifecycle.create(name: "Scrum", description: "Scrum lifecycle")
-
   Lifecycle.create(name: "XP", description: "XP lifecycle")
 end
 

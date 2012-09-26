@@ -1,32 +1,26 @@
 namespace :heroku do
 
-  task :reset => [:deploy, "heroku:db:reset", "heroku:db:populate"] do
+  desc "deploy the application to heroku and populate the database with data"
+  task :reset => [:deploy, :repopulate]
 
-  end
-
-  task :deploy => [:environment] do
-    #Push source to heroku
+  desc "Push source to heroku"
+  task :deploy do
     puts `git push heroku master`
   end
 
-  task :heroku_show do
-    #Load the remote site in the browser
-    puts `heroku open`
+  desc "empty the database by reloading the schema"
+  task :empty => [:environment] do
+    puts `heroku pg:reset DATABASE --confirm petlions`
+    puts `heroku run rake db:schema:load`
   end
 
-  namespace :db do
-
-    task :reset do
-      puts `heroku pg:reset DATABASE --confirm quatsch`
-      puts `heroku run rake db:schema:load`
-    end
-
-    task :populate do
-      #Load sample data
-      puts `heroku run rake db:populate`
-      #Restarts the heroku application
-      puts `heroku restart`
-    end
-
+  desc "Load sample data and restart the heroku application"
+  task :populate => [:environment] do
+    puts `heroku run rake db:populate`
+    puts `heroku restart`
   end
+
+  desc "empty and then repopulate the database"
+  task :repopulate => [:empty, :populate]
+
 end

@@ -4,11 +4,12 @@ gem 'rails'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'bootstrap-sass-rails'
-gem 'devise'
 
+# Used to generate sample data
 gem 'factory_girl_rails'
-#Helps generate test data, need this specific version for heroku
-gem "faker", '= 1.0.1'
+gem "faker", '= 1.0.1' #Specific version required for heroku
+
+gem 'heroku'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,7 +21,10 @@ end
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
+  #Used to annotate models with the database schema
   gem 'annotate'
+
+  #Gems for testing
   gem 'rspec-rails'
   gem 'spork-rails'
   gem 'guard-rspec'
