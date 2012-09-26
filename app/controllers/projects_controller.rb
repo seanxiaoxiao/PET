@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(params[:project])
+    @project = Project.create(params[:project])
     respond_with @project
   end
 
