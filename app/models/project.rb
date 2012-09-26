@@ -1,4 +1,4 @@
 class Project < ActiveRecord::Base
-  attr_accessible :description, :lifecycle_id, :name
+  attr_accessible :name, :description
   has_one :lifecycle
 end

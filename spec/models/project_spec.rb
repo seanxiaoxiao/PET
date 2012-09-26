@@ -2,15 +2,8 @@ require 'spec_helper'
 
 describe Project do
 
-
-  describe "Project should have no lifecycle" do
-    proj = Project.new()
-    proj.lifecycle.nil?
-  end
-
-
   before do
-    @project = Project.new()
+    @project = Project.new
   end
 
   subject { @project }

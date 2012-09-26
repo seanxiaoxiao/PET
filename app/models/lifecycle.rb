@@ -1,4 +1,4 @@
 class Lifecycle < ActiveRecord::Base
-  attr_accessible :description, :name
+  attr_accessible :name, :description
 
 end

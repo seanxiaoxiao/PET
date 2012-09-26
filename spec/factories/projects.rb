@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :project do
     name "MyString"
-    lifecycle_id ""
     description "MyText"
+    lifecycle
   end
 end
