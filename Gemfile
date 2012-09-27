@@ -26,6 +26,7 @@ group :development, :test do
 
   #Gems for testing
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
   gem 'spork-rails'
   gem 'guard-rspec'
   gem 'guard-spork'
