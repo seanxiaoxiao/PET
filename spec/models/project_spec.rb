@@ -27,6 +27,7 @@ describe Project do
   describe "constraints on name" do
     it { should validate_uniqueness_of(:name) }
     it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:lifecycle) }
     it { project.name.should have_at_least(3).characters }
     it { project.name.should have_at_most(100).characters }
   end
