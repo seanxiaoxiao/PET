@@ -18,10 +18,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    lifecycle = Lifecycle.find(params[:project][:lifecycle_id])
     @project = Project.create(params[:project])
-    @project.lifecycle = lifecycle
-    @project.save
     respond_with @project
   end
 
