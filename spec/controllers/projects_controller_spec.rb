@@ -6,9 +6,11 @@ describe ProjectsController do
     @lifecycle = FactoryGirl.create(:lifecycle)
     @project = FactoryGirl.create(:project, :lifecycle => @lifecycle)
     @valid_project_attributes = {
-        :name => "Test Title",
-        :description => "Test content",
-        :lifecycle_id => @lifecycle,
+        :project => {
+          :name => "Test Title",
+          :description => "Test content",
+          :lifecycle_id => @lifecycle,
+        }
     }
   end
 
