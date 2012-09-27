@@ -42,4 +42,25 @@ describe "Post pages" do
     end
 
   end
+
+  describe "viewing the projects" do
+
+    before do
+      visit projects_path
+    end
+
+    it { should have_content('All Projects') }
+    it { should have_link('Create Project') }
+
+    describe "should navigate to create project page" do
+
+      before { click_on 'Create Project' }
+        it { should have_content('New Project') }
+
+
+    end
+
+
+  end
+
 end
