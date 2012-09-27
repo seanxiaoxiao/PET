@@ -1,13 +1,23 @@
+# == Schema Information
+#
+# Table name: projects
+#
+#  id           :integer          not null, primary key
+#  name         :string(255)
+#  lifecycle_id :integer
+#  description  :text
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 require 'spec_helper'
 
 describe Project do
 
-  before do
-    @project = Project.new
-    @project.name = "PET"
-  end
+  let(:lifecycle) { FactoryGirl.create(:lifecycle) }
+  let(:project) { FactoryGirl.create(:project, :lifecycle => lifecycle) }
 
-  subject { @project }
+  subject { project }
 
   it { should respond_to(:name) }
   it { should respond_to(:description) }
@@ -17,12 +27,7 @@ describe Project do
   describe "constraints on name" do
     it { should validate_uniqueness_of(:name) }
     it { should validate_presence_of(:name) }
-    it { @project.name.should have_at_least(3).characters }
-
-    describe "invalid characters" do
-      before { @project.name = "  " }
-      it { should_not be_valid }
-    end
-
+    it { project.name.should have_at_least(3).characters }
+    it { project.name.should have_at_most(100).characters }
   end
 end
