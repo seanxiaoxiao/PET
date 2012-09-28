@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Post pages" do
+describe "Project pages" do
 
   subject { page }
   let!(:lifecycle) { FactoryGirl.create(:lifecycle) }
@@ -37,13 +37,13 @@ describe "Post pages" do
         select(lifecycle.name, :from => 'Lifecycle')
       end
       it "should create the project" do
-        expect {click_on 'Save' }.to change(Project, :count)
+        expect {click_on 'Save' }.to change(Project, :count).by(1)
       end
     end
 
   end
 
-  describe "viewing the projects" do
+  describe "viewing all projects" do
 
     before do
       visit projects_path
@@ -52,6 +52,24 @@ describe "Post pages" do
     it { should have_content('All Projects') }
     it { should have_content(project.name) }
     it { should have_link('Create Project', :href => new_project_path) }
+
+  end
+
+  describe "viewing a project" do
+
+    before do
+      visit project_path(project)
+    end
+
+    it { should have_content('Name') }
+    it { should have_content(project.name) }
+    it { should have_content('Lifecycle') }
+    it { should have_content(project.lifecycle.name) }
+    it { should have_content('Description') }
+    it { should have_content(project.description) }
+
+    it { should have_link('Edit', :href => edit_project_path(project)) }
+    it { should have_link('Back', :href => projects_path) }
 
   end
 
