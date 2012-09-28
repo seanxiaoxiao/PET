@@ -2,17 +2,17 @@
 
 = link_to 'Create Project', new_project_path, :class => "btn btn-primary"
 
-%table
+.border-table
+  %table.table
 
-  - @projects.each do |project|
-    %tr
-      %td= project.name
-      %td= project.lifecycle_id
-      %td= project.description
-      %td= link_to 'Show', project
-      %td= link_to 'Edit', edit_project_path(project)
-      %td= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }
+    - @projects.each do |project|
+      %tr
+        %td
+          .pull-left.clear
+            = link_to project.name , project
+          .pull-left.clear
+            = "Created on: #{ project.created_at.strftime("%m-%d-%Y")}"
+      -#%td= link_to 'delete', project, method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
 
 
