@@ -8,9 +8,9 @@
     - @projects.each do |project|
       %tr
         %td
-          .pull-left.clear
+          .pull-left.clear.list-link
             = link_to project.name , project
-          .pull-left.clear
+          .pull-left.clear.font-12
             = "Created on: #{ project.created_at.strftime("%m-%d-%Y")}"
       -#%td= link_to 'delete', project, method: :delete, data: { confirm: 'Are you sure?' }
 
