@@ -3,10 +3,10 @@ require 'spec_helper'
 describe "Post pages" do
 
   subject { page }
+  let!(:lifecycle) { FactoryGirl.create(:lifecycle) }
+  let!(:project) { FactoryGirl.create(:project, :lifecycle => lifecycle) }
 
   describe "making a new project" do
-
-    let!(:lifecycle) { FactoryGirl.create(:lifecycle) }
 
     before do
       visit new_project_path
@@ -17,7 +17,7 @@ describe "Post pages" do
     it { should have_content('Description') }
 
     it { should have_button('Save') }
-    it { should have_link('Back', href: projects_path) }
+    it { should have_link('Back', :href => projects_path) }
 
     describe "submitting an empty form" do
       describe "errors" do
@@ -31,8 +31,8 @@ describe "Post pages" do
 
     describe "submitting a valid form" do
       before do
-        fill_in 'Name', with: "Super duper project"
-        fill_in 'Description', with: "A description"
+        fill_in 'Name', :with => "Super duper project"
+        fill_in 'Description', :with => "A description"
         save_page
         select(lifecycle.name, :from => 'Lifecycle')
       end
@@ -50,16 +50,8 @@ describe "Post pages" do
     end
 
     it { should have_content('All Projects') }
-    it { should have_link('Create Project') }
-
-    describe "should navigate to create project page" do
-
-      before { click_on 'Create Project' }
-        it { should have_content('New Project') }
-
-
-    end
-
+    it { should have_content(project.name) }
+    it { should have_link('Create Project', :href => new_project_path) }
 
   end
 
