@@ -1,14 +1,12 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @project.name
-%p
-  %b Lifecycle:
-  = @project.lifecycle_id
-%p
-  %b Description:
-  = @project.description
+%dl.dl-horizontal
+  %dt Name:
+  %dd= @project.name
+  %dt Lifecycle:
+  %dd= @project.lifecycle_id
+  %dt Description:
+  %dd= @project.description
 
 = link_to 'Edit', edit_project_path(@project)
 \|
