@@ -11,3 +11,19 @@
   border-top: 1px solid #E5E5E5;
   background-color: whiteSmoke;
 }
+
+.clear  {
+  clear: both;
+}
+
+tbody:first-child {
+  border-top: 0;
+}
+
+
+.border-table {
+  border: 1px solid #DDD;
+  margin-top: 10px;
+  border-radius: 6px;
+  padding: 10px;
+}
