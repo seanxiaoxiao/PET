@@ -5,9 +5,14 @@
     = stylesheet_link_tag    "application", :media => "all"
     = csrf_meta_tags
   %body
-    %header
-      .container
-        %h2 PET
-    .container
+    %header.navbar-fixed-top
+      %div.navbar-inner
+        .container
+          %h2 PET
+    .container.main-container
       = yield
+    %footer.footer
+      %div.container
+        %div.pull-right Designed in California by Team Lions
+
     = javascript_include_tag "application"

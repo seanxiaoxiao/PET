@@ -25,7 +25,7 @@ describe "Post pages" do
         it { should have_content('error') }
       end
       it "should not create a project with blank data" do
-        expect { click_button 'Save' }.not_to change(Project, :count)
+        expect { click_button 'Save' }.not_to change(Project, :count).by(1)
       end
     end
 
