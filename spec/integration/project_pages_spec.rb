@@ -64,6 +64,7 @@ describe "Project pages" do
     it { should have_content('Name') }
     it { should have_content(project.name) }
     it { should have_content('Lifecycle') }
+
     it { should have_content(project.lifecycle.name) }
     it { should have_content('Description') }
     it { should have_content(project.description) }
