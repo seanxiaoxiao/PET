@@ -20,4 +20,9 @@ FactoryGirl.define do
     lifecycle
   end
 
+  factory :project_phase do
+    lifecycle_phase
+    project
+  end
+
 end

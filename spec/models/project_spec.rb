@@ -22,6 +22,7 @@ describe Project do
   it { should respond_to(:name) }
   it { should respond_to(:description) }
   it { should respond_to(:lifecycle) }
+  it { should respond_to(:project_phases) }
   it { should be_valid }
 
   describe "constraints on name" do

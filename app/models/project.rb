@@ -13,6 +13,7 @@
 class Project < ActiveRecord::Base
   attr_accessible :name, :description, :lifecycle_id
   belongs_to :lifecycle
+  has_many :project_phases
 
   validates :name,  :uniqueness => true, :presence => true, :length => { :maximum => 100}
   validates :lifecycle, :presence => true
