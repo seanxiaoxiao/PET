@@ -14,6 +14,6 @@ class Project < ActiveRecord::Base
   attr_accessible :name, :description, :lifecycle_id
   belongs_to :lifecycle
 
-  validates :name,  :uniqueness => true, :presence => true, :length => { :minimum => 3, :maximum => 100}
+  validates :name,  :uniqueness => true, :presence => true, :length => { :maximum => 100}
   validates :lifecycle, :presence => true
 end

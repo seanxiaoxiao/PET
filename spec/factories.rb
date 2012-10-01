@@ -7,6 +7,13 @@ FactoryGirl.define do
     description "A lifecycle description"
   end
 
+  factory :lifecycle_phase do
+    sequence(:name) { Faker::Company.catch_phrase }
+    sequence(:description) { Faker::Lorem.paragraph }
+    sequence(:sequence) {|n| n}
+    lifecycle
+  end
+
   factory :project do
     sequence(:name) { Faker::Company.catch_phrase }
     sequence(:description) { Faker::Lorem.paragraph }
