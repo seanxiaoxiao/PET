@@ -17,4 +17,11 @@ class Project < ActiveRecord::Base
 
   validates :name,  :uniqueness => true, :presence => true, :length => { :maximum => 100}
   validates :lifecycle, :presence => true
+
+  after_create do
+    self.lifecycle.lifecycle_phases.each do |lifecycle_phase|
+      ProjectPhase.create(:project_id => self.id, :lifecycle_phase_id => lifecycle_phase.id)
+    end
+  end
+
 end

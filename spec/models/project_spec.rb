@@ -14,8 +14,9 @@ require 'spec_helper'
 
 describe Project do
 
-  let(:lifecycle) { FactoryGirl.create(:lifecycle) }
-  let(:project) { FactoryGirl.create(:project, :lifecycle => lifecycle) }
+  let!(:lifecycle) { FactoryGirl.create(:lifecycle) }
+  let!(:lifecycle_phase) { FactoryGirl.create(:lifecycle_phase, :lifecycle => lifecycle) }
+  let!(:project) { FactoryGirl.create(:project, :lifecycle => lifecycle) }
 
   subject { project }
 
@@ -31,4 +32,10 @@ describe Project do
     it { should validate_presence_of(:lifecycle) }
     it { project.name.should have_at_most(100).characters }
   end
+
+  describe "creates a new Project and match the Project Phase to Lifecycle Phase" do
+    it { should have(1).project_phases }
+    it { project.project_phases[0].lifecycle_phase_id.should == lifecycle_phase.id }
+  end
+
 end

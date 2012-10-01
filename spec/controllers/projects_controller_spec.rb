@@ -4,6 +4,7 @@ describe ProjectsController do
 
   let!(:lifecycle) { FactoryGirl.create(:lifecycle) }
   let!(:project) { FactoryGirl.create(:project, :lifecycle => lifecycle) }
+  let!(:lifecycle_phase) { FactoryGirl.create(:lifecycle_phase, :lifecycle => lifecycle) }
   let!(:valid_project_attributes) do
     {:project => {
         :name => "Test Title",
@@ -51,6 +52,12 @@ describe ProjectsController do
         post :create, valid_project_attributes
         assigns(:project).should be_a(Project)
         assigns(:project).should be_persisted
+      end
+
+      it "creates a new Project and have one Project Phase" do
+        expect {
+          post :create, valid_project_attributes
+        }.to change(ProjectPhase, :count).by(1)
       end
 
       it "redirects to the created project" do
