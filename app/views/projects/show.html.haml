@@ -1,8 +1,7 @@
 %p#notice= notice
 
-%ul#project-tabs.nav.nav-tabs
-  %li.active
-    %a{:href => "#project", :data_toggle => "tab"} Project
+= render 'shared/tab'
+
 .border-project
   %dl.dl-horizontal
     %dt Name:
