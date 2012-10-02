@@ -35,30 +35,36 @@ def make_lifecycle_phases
   FactoryGirl.create(:lifecycle_phase, {:name => "Development Phase", :description => I18n.t('waterfall_development_phase_description'), :lifecycle => waterfall})
   FactoryGirl.create(:lifecycle_phase, {:name => "Test Phase", :description => I18n.t('waterfall_test_phase_description'), :lifecycle => waterfall})
   FactoryGirl.create(:lifecycle_phase, {:name => "Deploy Phase", :description => I18n.t('waterfall_deploy_phase_description'), :lifecycle => waterfall})
+  FactoryGirl.reload
 
   scrum = Lifecycle.find_by_name("Scrum")
   FactoryGirl.create(:lifecycle_phase, {:name => "Exploration Phase", :description => I18n.t('scrum_exploration_phase_description'), :lifecycle => scrum})
   FactoryGirl.create(:lifecycle_phase, {:name => "Planning Phase", :description => I18n.t('scrum_planning_phase_description'), :lifecycle => scrum})
   FactoryGirl.create(:lifecycle_phase, {:name => "Sprint", :description => I18n.t('scrum_sprint_phase_description'), :lifecycle => scrum})
   FactoryGirl.create(:lifecycle_phase, {:name => "Review Phase", :description => I18n.t('scrum_review_phase_description'), :lifecycle => scrum})
+  FactoryGirl.reload
 
   xp = Lifecycle.find_by_name("XP")
   FactoryGirl.create(:lifecycle_phase, {:name => "Exploration Phase", :description => I18n.t('xp_exploration_phase_description'), :lifecycle => xp})
   FactoryGirl.create(:lifecycle_phase, {:name => "Planning Phase", :description => I18n.t('xp_planning_phase_description'), :lifecycle => xp})
   FactoryGirl.create(:lifecycle_phase, {:name => "Iteration", :description => I18n.t('xp_iteration_phase_description'), :lifecycle => xp})
   FactoryGirl.create(:lifecycle_phase, {:name => "Review Phase", :description => I18n.t('xp_review_phase_description'), :lifecycle => xp})
+  FactoryGirl.reload
 
   rup = Lifecycle.find_by_name("RUP")
   FactoryGirl.create(:lifecycle_phase, {:name => "Inception Phase", :description => I18n.t('rup_inception_phase_description'), :lifecycle => rup})
   FactoryGirl.create(:lifecycle_phase, {:name => "Elaboration Phase", :description => I18n.t('rup_elaboration_phase_description'), :lifecycle => rup})
   FactoryGirl.create(:lifecycle_phase, {:name => "Construction Phase", :description => I18n.t('rup_construction_phase_description'), :lifecycle => rup})
   FactoryGirl.create(:lifecycle_phase, {:name => "Transition Phase", :description => I18n.t('rup_transition_phase_description'), :lifecycle => rup})
+  FactoryGirl.reload
 
   rad = Lifecycle.find_by_name("RAD")
   FactoryGirl.create(:lifecycle_phase, {:name => "Requirements Planning Phase", :description => I18n.t('rad_requirements_planning_phase_description'), :lifecycle => rad})
   FactoryGirl.create(:lifecycle_phase, {:name => "User design Phase", :description => I18n.t('rad_user_design_phase_description'), :lifecycle => rad})
   FactoryGirl.create(:lifecycle_phase, {:name => "Construction Phase", :description => I18n.t('rad_construction_phase_description'), :lifecycle => rad})
   FactoryGirl.create(:lifecycle_phase, {:name => "Cutover Phase", :description => I18n.t('rad_cutover_phase_description'), :lifecycle => rad})
+  FactoryGirl.reload
+
 end
 
 def make_fake_projects
