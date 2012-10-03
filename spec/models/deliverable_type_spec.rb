@@ -27,7 +27,7 @@ describe DeliverableType do
 
 
   describe "constraints on unit_of_measure" do
-    it { should validate_presence_of(:unit_of_measure_id) }
+    it { should validate_presence_of(:unit_of_measure) }
   end
 
 end

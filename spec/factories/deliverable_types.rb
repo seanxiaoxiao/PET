@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :deliverable_type do
     name "Document"
-    unit_of_measure_id 1
+    unit_of_measure
   end
 end
