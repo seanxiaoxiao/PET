@@ -2,5 +2,8 @@
 
 = render 'shared/tab'
 
+:javascript
+  document.getElementById("phases").setAttribute("class", "active");
+
 .border-project
   = render(:partial => 'shared/project_phase', :collection => @project.project_phases) || "There are no project phases."
