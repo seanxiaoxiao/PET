@@ -1,6 +1,6 @@
 
 %ul#project-tabs.nav.nav-tabs
-  %li.active
-    %a{:href => "#project", :data_toggle => "tab"} Overview
   %li
-    %a{:href => "#phases", :data_toggle => "tab"} Project Phases
+    = link_to "Overview", project_path(@project), :html => { :data_toggle => "tab" }
+  %li
+    = link_to "Project Phases", project_project_phases_path(@project), :html => { :data_toggle => "tab" }
