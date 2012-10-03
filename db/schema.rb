@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121001175432) do
+ActiveRecord::Schema.define(:version => 20121003173433) do
+
+  create_table "complexities", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "deliverable_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "unit_of_measure_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  create_table "deliverables", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "deliverable_type_id"
+    t.integer  "complexity_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
 
   create_table "lifecycle_phases", :force => true do |t|
     t.string   "name"
@@ -42,6 +64,12 @@ ActiveRecord::Schema.define(:version => 20121001175432) do
     t.text     "description"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "unit_of_measures", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

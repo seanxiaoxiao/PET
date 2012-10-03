@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: lifecycle_phases
+#
+#  id           :integer          not null, primary key
+#  name         :string(255)
+#  description  :text
+#  sequence     :integer
+#  lifecycle_id :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 require 'spec_helper'
 
 describe LifecyclePhase do
