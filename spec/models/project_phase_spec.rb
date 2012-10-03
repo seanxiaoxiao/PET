@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: project_phases
+#
+#  id                 :integer          not null, primary key
+#  lifecycle_phase_id :integer
+#  project_id         :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
 require 'spec_helper'
 
 
