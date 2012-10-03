@@ -1,6 +1,6 @@
 
 %ul#project-tabs.nav.nav-tabs
-  %li
+  %li#overview
     = link_to "Overview", project_path(@project), :html => { :data_toggle => "tab" }
-  %li
+  %li#phases
     = link_to "Project Phases", project_project_phases_path(@project), :html => { :data_toggle => "tab" }

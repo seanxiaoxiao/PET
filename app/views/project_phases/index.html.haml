@@ -2,6 +2,9 @@
 
 = render 'shared/tab'
 
+:javascript
+  document.getElementById("phases").setAttribute("class", "active");
+
 .border-project
   - if @project.project_phases.any?
     - @cell_width = 100 / @project.project_phases.size
