@@ -55,6 +55,9 @@ table tr:first-child td {
   font-size: 18px;
 }
 
+.dl-horizontal {
+  margin: 20px;
+}
 
 .dl-horizontal dt {
   width: 85px;
@@ -62,6 +65,7 @@ table tr:first-child td {
 
 .dl-horizontal dd {
   margin-left: 100px;
+  text-align: left;
 }
 
 #project-tabs {
