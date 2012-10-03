@@ -3,4 +3,14 @@
 = render 'shared/tab'
 
 .border-project
-  = render(:partial => 'shared/project_phase', :collection => @project.project_phases) || "There are no project phases."
+  - if @project.project_phases.any?
+    - @cell_width = 100 / @project.project_phases.size
+    %table#phases-table
+      %tr
+        - @project.project_phases.each do |phase|
+          %th.phase-title= phase.lifecycle_phase.name
+      %tr
+        - @project.project_phases.each do |phase|
+          %td{:width => "#{@cell_width}%"}
+  - else
+    = "There are no project phases."

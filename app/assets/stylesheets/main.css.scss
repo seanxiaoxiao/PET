@@ -40,7 +40,7 @@ table tr:first-child td {
   height: 320px;
   display: block;
   overflow: hidden;
-  padding: 10px 20px 20px 20px;
+  padding: 20px 0px 20px 0px;
   border-radius: 0px 0px 6px 6px;
   -moz-border-radius: 0px 0px 6px 6px;
   -webkit-border-radios: 0px 0px 6px 6px;
@@ -66,4 +66,21 @@ table tr:first-child td {
 
 #project-tabs {
   margin-bottom: 0;
+}
+
+#phases-table {
+  min-width: 100%;
+}
+
+#phases-table td {
+  table-layout: fixed;
+  height: 300px;
+}
+
+#phases-table th, #phases-table td {
+  border-left: 1px solid;
+}
+
+#phases-table th:first-child, #phases-table td:first-child {
+  border-left: 0;
 }
