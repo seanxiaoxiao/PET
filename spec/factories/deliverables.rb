@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :deliverable do
     name "Architecture Document"
     description "Architecture Document"
-    deliverable_type_id 1
-    complexity_id 1
+    deliverable_type
+    complexity
   end
 end

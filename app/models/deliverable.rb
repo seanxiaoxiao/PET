@@ -15,8 +15,8 @@ class Deliverable < ActiveRecord::Base
   attr_accessible :complexity_id, :deliverable_type_id, :description, :name
 
   validates :name, :presence => true, :length => { :maximum => 100}, :uniqueness => true
-  validates :complexity_id, :presence => true
-  validates :deliverable_type_id, :presence => true
+  validates :complexity, :presence => true
+  validates :deliverable_type, :presence => true
 
   belongs_to :complexity
   belongs_to :deliverable_type

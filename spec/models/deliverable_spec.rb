@@ -29,11 +29,11 @@ describe Deliverable do
   end
 
   describe "constraints on complexity" do
-    it { should validate_presence_of(:complexity_id) }
+    it { should validate_presence_of(:complexity) }
   end
 
   describe "constraints on deliverable type" do
-    it { should validate_presence_of(:deliverable_type_id) }
+    it { should validate_presence_of(:deliverable_type) }
   end
 
 end

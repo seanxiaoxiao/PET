@@ -1,21 +1,37 @@
 
 namespace :db do
 
+  desc "Runs database migration for the test and development environments"
+  task :migrate_all do
+    puts "Started test db migration."
+    puts `rake db:migrate RAILS_ENV=test`
+    puts "Finished test db migration."
+
+    puts "Started development db migration."
+    puts `rake db:migrate RAILS_ENV=development`
+    puts "Finished development db migration."
+
+    puts "Started production db migration."
+    puts `rake db:migrate RAILS_ENV=production`
+    puts "Finished production db migration."
+  end
+
   desc "empty the database by reloading the schema"
   task :empty do
     Rake::Task["db:schema:load"].invoke
+    puts "Finished loading schema. This emptied the database."
   end
 
   desc "Fill database with sample data"
-  task :populate => :environment do
+  task :populate do
     make_lifecycles
     make_lifecycle_phases
     make_fake_projects
+    puts "Finished populating the database."
   end
 
   desc "re-populate the database with sample data"
-  task :repopulate => [:empty, :populate] do
-    puts "Database has been repopulated!"
+  task :repopulate => [:migrate_all, :empty, :populate] do
   end
 
 end
