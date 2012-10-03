@@ -69,7 +69,7 @@ describe "Project pages" do
     it { should have_content('Description') }
     it { should have_content(project.description) }
 
-    it { should have_link('Edit', :href => edit_project_path(project)) }
+    #it { should have_link('Edit', :href => edit_project_path(project)) }
     it { should have_link('Back', :href => projects_path) }
 
   end

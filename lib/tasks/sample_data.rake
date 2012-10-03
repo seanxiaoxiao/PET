@@ -1,7 +1,7 @@
 
 namespace :db do
 
-  desc "Runs database migration for the test and development environments"
+  desc "Runs database migration for the test, development, and production environments"
   task :migrate_all do
     puts "Started test db migration."
     puts `rake db:migrate RAILS_ENV=test`
@@ -23,7 +23,7 @@ namespace :db do
   end
 
   desc "Fill database with sample data"
-  task :populate do
+  task :populate => [:environment] do
     make_lifecycles
     make_lifecycle_phases
     make_fake_projects
@@ -88,4 +88,8 @@ def make_fake_projects
     lifecycle = Lifecycle.order("RANDOM()").first
     FactoryGirl.create(:project, {:lifecycle => lifecycle})
   end
+end
+
+def make_unit_of_measures
+  FactoryGirl.create(:unit_of_measure, {:name => "Pages"})
 end
