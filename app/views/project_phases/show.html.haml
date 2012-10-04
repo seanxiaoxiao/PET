@@ -6,10 +6,11 @@
   PET.activeTab("phases");
 
 .border-project
-  %div= link_to 'All Phases', project_project_phases_path(@project_phase.project)
+  .action-bar= link_to 'All Phases', project_project_phases_path(@project_phase.project)
+  .project-phase-title
+    %h4= @project_phase.name
+
   %dl.dl-horizontal
-    %dt Name:
-    %dd= @project_phase.name
     %dt Sequence:
     %dd= @project_phase.sequence
     %dt Description:

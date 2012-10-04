@@ -92,3 +92,11 @@ table tr:first-child td {
 #phases-table th:first-child, #phases-table td:first-child {
   border-left: 0;
 }
+
+.action-bar {
+  margin: 10px 20px 0 20px;
+}
+
+.project-title, .project-phase-title {
+  margin: 0 20px 0 20px;
+}
