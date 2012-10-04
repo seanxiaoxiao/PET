@@ -22,6 +22,11 @@ describe ProjectPhase do
   it { should respond_to(:lifecycle_phase) }
   it { should respond_to(:deliverables) }
 
+  #Virtual Properties
+  it { should respond_to(:name) }
+  it { should respond_to(:description) }
+  it { should respond_to(:sequence) }
+
   it { should be_valid }
 
   describe "project should be present" do

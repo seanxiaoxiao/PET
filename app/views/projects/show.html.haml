@@ -6,9 +6,9 @@
   PET.activeTab("overview");
 
 .border-project
+  .project-phase-title
+    %h4= @project.name
   %dl.dl-horizontal
-    %dt Name:
-    %dd= @project.name
     %dt Lifecycle:
     %dd= @project.lifecycle.name
     %dt Description:

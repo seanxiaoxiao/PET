@@ -35,7 +35,7 @@ describe Project do
 
   describe "creates a new Project and match the Project Phase to Lifecycle Phase" do
     it { should have(1).project_phases }
-    it { project.project_phases[0].lifecycle_phase_id.should == lifecycle_phase.id }
+    it { project.project_phases.first.lifecycle_phase_id.should == lifecycle_phase.id }
   end
 
 end

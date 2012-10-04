@@ -16,9 +16,22 @@ describe "Project Phase pages" do
     end
 
     it { should have_content('Project Phases') }
-    it { should have_content(lifecycle_phase_1.name) }
-    it { should have_content(lifecycle_phase_2.name) }
-    it { should have_content(lifecycle_phase_3.name) }
+    it { should have_link(lifecycle_phase_1.name) }
+    it { should have_link(lifecycle_phase_2.name) }
+    it { should have_link(lifecycle_phase_3.name) }
+
+  end
+
+  describe "view a project phase" do
+
+    before do
+      visit project_project_phase_path(project, project.project_phases.first)
+    end
+
+    it { should have_link('All Phases') }
+    it { should have_content(project.project_phases.first.name) }
+    it { should have_content(project.project_phases.first.description) }
+    it { should have_content(project.project_phases.first.sequence) }
 
   end
 end
