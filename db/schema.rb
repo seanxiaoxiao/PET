@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121003173433) do
+ActiveRecord::Schema.define(:version => 20121004154058) do
 
   create_table "complexities", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20121003173433) do
     t.integer  "complexity_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.integer  "project_phase_id"
   end
 
   create_table "lifecycle_phases", :force => true do |t|

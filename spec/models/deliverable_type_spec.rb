@@ -20,7 +20,6 @@ describe DeliverableType do
   it { should be_valid }
 
   describe "constraints on name" do
-    it { should validate_uniqueness_of(:name) }
     it { should validate_presence_of(:name) }
     it { deliverable_type.name.should have_at_most(100).characters }
   end

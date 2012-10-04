@@ -12,9 +12,9 @@
 class Lifecycle < ActiveRecord::Base
   attr_accessible :name, :description
 
-  validates :name,  :uniqueness => true, :presence => true, :length => { :maximum => 100}
-
   has_many :lifecycle_phases
+
+  validates :name,  :uniqueness => true, :presence => true, :length => { :maximum => 100}
 
   def self.select_options
     self.all.collect {|lifecycle| [lifecycle.name, lifecycle.id]}

@@ -12,8 +12,9 @@
 class DeliverableType < ActiveRecord::Base
   attr_accessible :name, :unit_of_measure_id
 
-  validates :name, :presence => true, :length => { :maximum => 20}, :uniqueness => true
+  belongs_to :unit_of_measure
+
+  validates :name, :presence => true, :length => { :maximum => 20}
   validates :unit_of_measure, :presence => true
 
-  belongs_to :unit_of_measure
 end

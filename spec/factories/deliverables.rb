@@ -2,8 +2,9 @@
 
 FactoryGirl.define do
   factory :deliverable do
-    name "Architecture Document"
-    description "Architecture Document"
+    name "PET Deliverable Document"
+    sequence(:description) { Faker::Lorem.paragraph }
+    project_phase
     deliverable_type
     complexity
   end

@@ -27,6 +27,10 @@ namespace :db do
     make_lifecycles
     make_lifecycle_phases
     make_fake_projects
+    make_unit_of_measures
+    make_complexities
+    make_deliverable_types
+    make_fake_deliverables
     puts "Finished populating the database."
   end
 
@@ -92,4 +96,30 @@ end
 
 def make_unit_of_measures
   FactoryGirl.create(:unit_of_measure, {:name => "Pages"})
+  FactoryGirl.create(:unit_of_measure, {:name => "Points"})
+  FactoryGirl.create(:unit_of_measure, {:name => "Days"})
+  FactoryGirl.create(:unit_of_measure, {:name => "Hours"})
+  FactoryGirl.create(:unit_of_measure, {:name => "Minutes"})
+end
+
+def make_complexities
+  FactoryGirl.create(:complexity, {:name => "Low"})
+  FactoryGirl.create(:complexity, {:name => "Medium"})
+  FactoryGirl.create(:complexity, {:name => "High"})
+end
+
+def make_deliverable_types
+  pages = UnitOfMeasure.find_by_name("Pages")
+  days = UnitOfMeasure.find_by_name("Days")
+  hours = UnitOfMeasure.find_by_name("Hours")
+
+  FactoryGirl.create(:deliverable_type, {:name => "Requirements Document", :unit_of_measure => pages})
+  FactoryGirl.create(:deliverable_type, {:name => "Design Document", :unit_of_measure => pages})
+  FactoryGirl.create(:deliverable_type, {:name => "Architecture Document", :unit_of_measure => days})
+  FactoryGirl.create(:deliverable_type, {:name => "Use Case Diagram", :unit_of_measure => hours})
+  FactoryGirl.create(:deliverable_type, {:name => "Presentation", :unit_of_measure => pages})
+end
+
+def make_fake_deliverables
+  FactoryGirl.create(:deliverable, {:name => "PET Requirements Document", :deliverable_type => "", :complexity => ""})
 end

@@ -1,8 +1,8 @@
+# Read about factories at https://github.com/thoughtbot/factory_girl
+
 FactoryGirl.define do
-
   factory :lifecycle do
-    name "A lifecycle"
-    description "A lifecycle description"
+    name "Waterfall"
+    sequence(:description) { Faker::Lorem.paragraph }
   end
-
 end
