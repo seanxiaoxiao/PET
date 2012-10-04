@@ -16,4 +16,19 @@ class ProjectPhase < ActiveRecord::Base
 
   validates :lifecycle_phase, :presence => true
   validates :project, :presence => true
+
+  attr_accessor :name, :description, :sequence
+
+  def name
+    lifecycle_phase ? lifecycle_phase.name : nil
+  end
+
+  def description
+    lifecycle_phase ? lifecycle_phase.description : nil
+  end
+
+  def sequence
+    lifecycle_phase ? lifecycle_phase.sequence : nil
+  end
+
 end

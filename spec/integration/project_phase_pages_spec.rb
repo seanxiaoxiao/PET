@@ -25,13 +25,13 @@ describe "Project Phase pages" do
   describe "view a project phase" do
 
     before do
-      visit project_project_phase_path(project, project.project_phases[0])
+      visit project_project_phase_path(project, project.project_phases.first)
     end
 
     it { should have_link('All Phases') }
-    it { should have_content(project.project_phases[0].lifecycle_phase.name) }
-    it { should have_content(project.project_phases[0].lifecycle_phase.description) }
-    it { should have_content(project.project_phases[0].lifecycle_phase.sequence) }
+    it { should have_content(project.project_phases.first.name) }
+    it { should have_content(project.project_phases.first.description) }
+    it { should have_content(project.project_phases.first.sequence) }
 
   end
 end

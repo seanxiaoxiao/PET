@@ -9,9 +9,9 @@
   %div= link_to 'All Phases', project_project_phases_path(@project_phase.project)
   %dl.dl-horizontal
     %dt Name:
-    %dd= @project_phase.lifecycle_phase.name
+    %dd= @project_phase.name
     %dt Sequence:
-    %dd= @project_phase.lifecycle_phase.sequence
+    %dd= @project_phase.sequence
     %dt Description:
-    %dd= @project_phase.lifecycle_phase.description
+    %dd= @project_phase.description
 
