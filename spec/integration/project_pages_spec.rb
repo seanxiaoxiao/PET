@@ -61,7 +61,6 @@ describe "Project pages" do
       visit project_path(project)
     end
 
-    it { should have_content('Name') }
     it { should have_content(project.name) }
     it { should have_content('Lifecycle') }
 
