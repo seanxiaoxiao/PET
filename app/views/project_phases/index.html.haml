@@ -11,7 +11,7 @@
     %table#phases-table
       %tr
         - @project.project_phases.each do |phase|
-          %th.phase-title= phase.lifecycle_phase.name
+          %th.phase-title= link_to phase.lifecycle_phase.name, project_project_phase_path(@project, phase)
       %tr
         - @project.project_phases.each do |phase|
           %td{:width => "#{@cell_width}%"}
