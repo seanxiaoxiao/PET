@@ -16,7 +16,7 @@ class LifecyclePhase < ActiveRecord::Base
 
   belongs_to :lifecycle
 
-  validates :lifecycle, :presence => true
   validates :name, :presence => true, :length => { :maximum => 100}
+  validates :lifecycle, :presence => true
   validates :sequence, :presence => true
 end

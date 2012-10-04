@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :lifecycle_phase do
-    sequence(:name) {|n| "Requirements Phase#{n}"}
+    name "Requirements Phase"
     sequence(:description) { Faker::Lorem.paragraph }
     sequence(:sequence) {|n| n}
     lifecycle

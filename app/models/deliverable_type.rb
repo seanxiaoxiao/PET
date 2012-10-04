@@ -14,7 +14,7 @@ class DeliverableType < ActiveRecord::Base
 
   belongs_to :unit_of_measure
 
-  validates :name, :presence => true, :length => { :maximum => 20}
+  validates :name, :presence => true, :length => { :maximum => 100}
   validates :unit_of_measure, :presence => true
 
 end

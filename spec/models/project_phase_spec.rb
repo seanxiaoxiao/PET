@@ -20,6 +20,9 @@ describe ProjectPhase do
 
   it { should respond_to(:project) }
   it { should respond_to(:lifecycle_phase) }
+  it { should respond_to(:deliverables) }
+
+  it { should be_valid }
 
   describe "project should be present" do
     it { should validate_presence_of(:project) }

@@ -121,5 +121,17 @@ def make_deliverable_types
 end
 
 def make_fake_deliverables
-  FactoryGirl.create(:deliverable, {:name => "PET Requirements Document", :deliverable_type => "", :complexity => ""})
+  Project.all.each do |project|
+    project.project_phases.each do |project_phase|
+      rand(3..5).times do
+        FactoryGirl.create(:deliverable, {:complexity => random(Complexity), :deliverable_type => random(DeliverableType)})
+      end
+    end
+  end
 end
+
+private
+
+  def random(recordClazz)
+    recordClazz.order("RANDOM()").first
+  end

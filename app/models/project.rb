@@ -21,7 +21,7 @@ class Project < ActiveRecord::Base
 
   after_create do
     self.lifecycle.lifecycle_phases.each do |lifecycle_phase|
-      ProjectPhase.create(:project_id => self.id, :lifecycle_phase_id => lifecycle_phase.id)
+      project_phases.create(:lifecycle_phase_id => lifecycle_phase.id)
     end
   end
 
