@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :complexity do
-    name "Medium"
+    sequence(:name) {|n| "Medium#{n}"}
   end
 end

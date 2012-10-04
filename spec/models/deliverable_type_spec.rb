@@ -12,6 +12,7 @@
 require 'spec_helper'
 
 describe DeliverableType do
+
   let(:deliverable_type) { FactoryGirl.create(:deliverable_type) }
 
   subject { deliverable_type }

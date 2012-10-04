@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :unit_of_measure do
-    name "Pages"
+    sequence(:name) {|n| "Pages#{n}"}
   end
 end

@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :deliverable do
-    name "PET Deliverable Document"
+    sequence(:name) {|n| "PET Deliverable Document#{n}"}
     sequence(:description) { Faker::Lorem.paragraph }
     project_phase
     deliverable_type

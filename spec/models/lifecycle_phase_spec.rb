@@ -15,8 +15,7 @@ require 'spec_helper'
 
 describe LifecyclePhase do
 
-  let(:lifecycle) { FactoryGirl.create(:lifecycle) }
-  let(:lifecycle_phase) { FactoryGirl.create(:lifecycle_phase, :lifecycle => lifecycle) }
+  let(:lifecycle_phase) { FactoryGirl.create(:lifecycle_phase) }
 
 
   subject { lifecycle_phase }

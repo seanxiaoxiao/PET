@@ -11,6 +11,7 @@
 require 'spec_helper'
 
 describe UnitOfMeasure do
+
   let(:unit_of_measure) { FactoryGirl.create(:unit_of_measure) }
 
   subject { unit_of_measure }

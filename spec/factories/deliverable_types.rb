@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :deliverable_type do
-    name "Document"
+    sequence(:name) {|n| "Document#{n}"}
     unit_of_measure
   end
 end

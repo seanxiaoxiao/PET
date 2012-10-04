@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :lifecycle do
-    name "Waterfall"
+    sequence(:name) {|n| "Waterfall#{n}"}
     sequence(:description) { Faker::Lorem.paragraph }
   end
 end

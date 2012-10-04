@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :project do
-    name "PET"
+    sequence(:name) {|n| "PET#{n}"}
     sequence(:description) { Faker::Lorem.paragraph }
     lifecycle
   end

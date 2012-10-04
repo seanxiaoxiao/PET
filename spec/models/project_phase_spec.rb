@@ -14,10 +14,7 @@ require 'spec_helper'
 
 describe ProjectPhase do
 
-  let(:lifecycle) { FactoryGirl.create(:lifecycle) }
-  let(:project) { FactoryGirl.create(:project, :lifecycle => lifecycle) }
-  let(:lifecycle_phase) { FactoryGirl.create(:lifecycle_phase, :lifecycle => lifecycle) }
-  let(:project_phase) { FactoryGirl.create(:project_phase, :lifecycle_phase => lifecycle_phase, :project => project) }
+  let(:project_phase) { FactoryGirl.create(:project_phase) }
 
   subject { project_phase }
 
