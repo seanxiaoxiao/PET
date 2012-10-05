@@ -1,0 +1,33 @@
+= form_for [@project, @project_phase, @deliverable], :html => {:class => 'form-horizontal'} do |f|
+  %legend Create Deliverable
+  - if @deliverable.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@deliverable.errors.count, "error")} prohibited this deliverable from being saved:"
+      %ul
+        - @deliverable.errors.full_messages.each do |msg|
+          %li= msg
+
+  .control-group
+    = f.label :name, :class => 'control-label'
+    .controls
+      = f.text_field :name
+
+  .control-group
+    = f.label :description, :class => 'control-label'
+    .controls
+      = f.text_area :description, :rows => 4
+
+  .control-group
+    = f.label :deliverable_type, :class => 'control-label'
+    .controls
+      = f.select :deliverable_type_id, DeliverableType.select_options, :selected => params[:deliverable_type_id]
+
+  .control-group
+    = f.label :complexity_id, :class => 'control-label'
+    .controls
+      = f.select :complexity_id, Complexity.select_options, :selected => params[:complexity_id]
+
+  .control-group
+    .controls
+      = f.submit 'Create', :class => 'btn'
+      = link_to 'Cancel', "", :class => "btn"

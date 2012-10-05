@@ -17,4 +17,8 @@ class DeliverableType < ActiveRecord::Base
   validates :name, :presence => true, :length => { :maximum => 100}
   validates :unit_of_measure, :presence => true
 
+  def self.select_options
+    self.all.collect {|deliverable_type| [deliverable_type.name, deliverable_type.id]}
+  end
+
 end

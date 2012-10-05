@@ -33,7 +33,6 @@ describe "Project pages" do
       before do
         fill_in 'Name', :with => "Super duper project"
         fill_in 'Description', :with => "A description"
-        save_page
         select(lifecycle.name, :from => 'Lifecycle')
       end
       it "should create the project" do
