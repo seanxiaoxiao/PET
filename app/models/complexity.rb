@@ -12,4 +12,8 @@ class Complexity < ActiveRecord::Base
   attr_accessible :name
 
   validates :name, :presence => true, :length => { :maximum => 100}, :uniqueness => true
+
+  def self.select_options
+    self.all.collect {|complexity| [complexity.name, complexity.id]}
+  end
 end
