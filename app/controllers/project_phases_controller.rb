@@ -6,6 +6,7 @@ class ProjectPhasesController < ApplicationController
 
   def index
     @project = Project.find(params[:project_id])
+    @project_phases = @project.project_phases.sort_by { |p| p.sequence }
     respond_with @project
   end
 

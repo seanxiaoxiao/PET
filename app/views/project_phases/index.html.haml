@@ -6,14 +6,14 @@
   PET.activeTab("phases");
 
 .border-project
-  - if @project.project_phases.any?
+  - if @project_phases.any?
     - @cell_width = 100 / @project.project_phases.size
     %table#phases-table
       %tr
-        - @project.project_phases.each do |phase|
+        - @project_phases.each do |phase|
           %th.phase-title= link_to phase.lifecycle_phase.name, project_project_phase_path(@project, phase)
       %tr
-        - @project.project_phases.each do |phase|
+        - @project_phases.each do |phase|
           %td{:width => "#{@cell_width}%"}
   - else
     = "There are no project phases."

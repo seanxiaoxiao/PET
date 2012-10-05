@@ -1,0 +1,3 @@
+class DeliverablesController < ApplicationController
+
+end

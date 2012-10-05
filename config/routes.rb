@@ -1,6 +1,7 @@
 Pet::Application.routes.draw do
   resources :projects do
     resources :project_phases
+    resources :deliverables
     end
 end
 #== Route Map
