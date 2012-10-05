@@ -7,7 +7,7 @@
 
 .border-project
   .action-bar
-    = link_to 'All Phases', project_project_phases_path(@project, @project_phase)
+    = link_to 'All Phases', project_project_phases_path(@project)
     = link_to 'Create Deliverable', new_project_project_phase_deliverable_path(@project, @project_phase), :class => "btn btn-primary pull-right"
   .project-phase-title
     %h4= @project_phase.name

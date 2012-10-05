@@ -20,6 +20,14 @@ describe DeliverablesController do
     }}
   end
 
+  let!(:invalid_deliverable_attributes) do
+    {:deliverable => {
+        :description => "Test content",
+        :complexity_id => complexity.id,
+        :deliverable_type_id => deliverable_type.id
+    }}
+  end
+
   describe "GET new" do
     it "assigns a new deliverable as Deliverable" do
       get :new, {:project_id => project.to_param, :project_phase_id => project.project_phases.first.to_param}
@@ -38,12 +46,7 @@ describe DeliverablesController do
         expect {
           post :create, {:project_id => project.to_param,
                          :project_phase_id => project.project_phases.first.to_param,
-                         :deliverable => {
-                             :name => "Test Title",
-                             :description => "Test content",
-                             :complexity_id => complexity.id,
-                             :deliverable_type_id => deliverable_type.id
-                         }}
+          }.merge(valid_deliverable_attributes)
         }.to change(Deliverable, :count).by(1)
       end
 
@@ -54,11 +57,7 @@ describe DeliverablesController do
         expect {
           post :create, {:project_id => project.to_param,
                          :project_phase_id => project.project_phases.first.to_param,
-                         :deliverable => {
-                             :description => "Test content",
-                             :complexity_id => complexity.id,
-                             :deliverable_type_id => deliverable_type.id
-                         }}
+          }.merge(invalid_deliverable_attributes)
         }.to change(Deliverable, :count).by(0)
       end
 
@@ -66,12 +65,7 @@ describe DeliverablesController do
         expect {
           post :create, {:project_id => another_project.to_param,
                          :project_phase_id => project.project_phases.first.to_param,
-                         :deliverable => {
-                             :name => "Test Title",
-                             :description => "Test content",
-                             :complexity_id => complexity.id,
-                             :deliverable_type_id => deliverable_type.id
-                         }}
+          }.merge(valid_deliverable_attributes)
         }.to change(Deliverable, :count).by(0)
       end
 
