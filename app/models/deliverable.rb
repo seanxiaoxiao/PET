@@ -23,4 +23,5 @@ class Deliverable < ActiveRecord::Base
   validates :project_phase, :presence => true
   validates :complexity, :presence => true
   validates :deliverable_type, :presence => true
+
 end

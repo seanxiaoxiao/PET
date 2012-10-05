@@ -2,10 +2,10 @@
   %legend Create Deliverable
   - if @deliverable.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@deliverable.errors.count, "error")} prohibited this deliverable from being saved:"
+      %h2.label-important= "#{pluralize(@deliverable.errors.count, "error")} prohibited this deliverable from being saved:"
       %ul
         - @deliverable.errors.full_messages.each do |msg|
-          %li= msg
+          %p.text-error= msg
 
   .control-group
     = f.label :name, :class => 'control-label'

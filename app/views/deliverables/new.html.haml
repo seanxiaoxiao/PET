@@ -1,1 +1,9 @@
-= render 'form'
+%p#notice= notice
+
+= render 'shared/tab'
+
+:javascript
+  PET.activeTab("deliverables");
+
+.border-project
+  = render 'form'
