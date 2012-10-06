@@ -1,7 +1,9 @@
 namespace :heroku do
 
   desc "deploy the application to heroku and populate the database with data"
-  task :reset => [:deploy, :repopulate]
+  task :reset => [:deploy, :repopulate] do
+    puts `heroku open`
+  end
 
   desc "Push source to heroku"
   task :deploy do
